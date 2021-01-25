@@ -137,6 +137,7 @@ public class Restaurant extends Customer
 
     public void SearchItem() throws IOException
     {
+        int flag = 0;
         InputStreamReader read = new InputStreamReader(System.in);
         BufferedReader in = new BufferedReader(read);
         String x = in.readLine();
@@ -144,12 +145,14 @@ public class Restaurant extends Customer
         {
             if (x.equalsIgnoreCase(menu[i].name))
             {
+            	flag = 1;
                 System.out.println("Item found!");
                 System.out.println("Item Name = "+menu[i].name+", Item price = "+menu[i].price+", Item ingredients = "+menu[i].ing+", Item frequency = "+menu[i].orderfreq);
             }
-            else {
-                System.out.println("Sorry, that item is not available!");
-            }
+        }
+        if(flag == 0) 
+        {
+            System.out.println("Sorry, that item is not available!");
         }
     }
 
